@@ -71,14 +71,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gestor.wsgi.application'
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = [
+    '.vercel.app',
+    'localhost'
+]
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Gestor',
+        'USER': 'postgres',
+        'PASSWORD': '040204Luis*',
+        'HOST': 'localhost'
     }
 }
 

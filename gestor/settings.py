@@ -71,7 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gestor.wsgi.application'
 
-
+ALLOWED_HOSTS = ['.vercel.app']
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -127,4 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:3001',
+    'https://gestor-three.vercel.app'
 ]

@@ -1,4 +1,6 @@
+import os
 from pathlib import Path
+import psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +31,7 @@ INSTALLED_APPS = [
     'authenticate',
     'rest_framework',
     'rest_framework.authtoken',
-    'knox'
+    'knox',
 ]
 
 REST_FRAMEWORK = {
@@ -72,8 +74,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gestor.wsgi.application'
 
 ALLOWED_HOSTS = [
-    '.vercel.app',
-    'localhost'
+    '.vercel.app', '.now.sh',
+    'localhost',
+    'https://gestor-back-luishgfarias.vercel.app/',
+    
 ]
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -81,10 +85,11 @@ ALLOWED_HOSTS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Gestor',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '040204Luis*',
-        'HOST': 'localhost'
+        'PASSWORD': '0ArATuZPNKHS5vBOXKXx',
+        'HOST': 'containers-us-west-39.railway.app',
+        'PORT': '5667'
     }
 }
 
@@ -124,7 +129,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
